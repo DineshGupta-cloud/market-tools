@@ -37,15 +37,15 @@ Docs: http://localhost:8000/docs
 cd frontend
 npm install
 npm run dev
-```
+``
 
 Frontend: http://localhost:5173
 
 ## Development Phases
 
 - [x] Phase 1 - Project foundation
-- [ ] Phase 2 - Stock Screener
-- [ ] Phase 3 - Option Chain
+- [x] Phase 2 - Stock Screener
+- [x] Phase 3 - Option Chain
 - [ ] Phase 4 - ATM Premium
 - [ ] Phase 5 - Risk Calculator
 - [ ] Phase 6 - Caching, charts, production hardening and Docker
