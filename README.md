@@ -23,13 +23,10 @@ An original market-analysis web application focused on four tools:
 ```bash
 cd backend
 python -m venv .venv
-# Windows Git Bash: source .venv/Scripts/activate
+source .venv/Scripts/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
-
-API: http://localhost:8000
-Docs: http://localhost:8000/docs
 
 ## Run Frontend
 
@@ -37,15 +34,15 @@ Docs: http://localhost:8000/docs
 cd frontend
 npm install
 npm run dev
-``
-
-Frontend: http://localhost:5173
+```
 
 ## Development Phases
 
 - [x] Phase 1 - Project foundation
 - [x] Phase 2 - Stock Screener
 - [x] Phase 3 - Option Chain
-- [ ] Phase 4 - ATM Premium
+- [x] Phase 4 - ATM Premium
 - [ ] Phase 5 - Risk Calculator
 - [ ] Phase 6 - Caching, charts, production hardening and Docker
+
+> Current market values are sample data. Live NSE/EOD integration will be added through a dedicated market-data service layer.
