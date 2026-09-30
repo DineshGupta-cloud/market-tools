@@ -42,7 +42,7 @@ npm run dev
 - [x] Phase 2 - Stock Screener
 - [x] Phase 3 - Option Chain
 - [x] Phase 4 - ATM Premium
-- [ ] Phase 5 - Risk Calculator
+- [x] Phase 5 - Risk Calculator
 - [ ] Phase 6 - Caching, charts, production hardening and Docker
 
 > Current market values are sample data. Live NSE/EOD integration will be added through a dedicated market-data service layer.
