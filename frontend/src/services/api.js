@@ -20,6 +20,8 @@ export const api = {
   runScreener: filters => request('/stocks/screener/run', { method:'POST', body:JSON.stringify(filters) }),
   expiries: symbol => request('/options/expiries?symbol='+encodeURIComponent(symbol)),
   optionChain: (symbol, expiry) => request('/options/chain?symbol='+encodeURIComponent(symbol)+'&expiry='+encodeURIComponent(expiry)),
+  optionAnalytics: (symbol, expiry) => request('/options/analytics?symbol='+encodeURIComponent(symbol)+'&expiry='+encodeURIComponent(expiry)),
+  optionCopilot: (symbol, expiry) => request('/options/copilot?symbol='+encodeURIComponent(symbol)+'&expiry='+encodeURIComponent(expiry)),
   atmPremium: (symbol, expiry) => request('/options/atm-premium?symbol='+encodeURIComponent(symbol)+'&expiry='+encodeURIComponent(expiry)),
   atmPremiumHistory: (symbol, expiry) => request('/options/atm-premium/history?symbol='+encodeURIComponent(symbol)+'&expiry='+encodeURIComponent(expiry)),
   calculateRisk: payload => request('/risk/calculate', { method:'POST', body:JSON.stringify(payload) })
