@@ -1,7 +1,8 @@
-"""Option analytics and deterministic copilot endpoints."""
+"""Option analytics and optional AI copilot endpoints."""
 from fastapi import APIRouter, HTTPException, Query
 from app.api.routes.options import _chain
-from app.services.options_analytics import build_copilot_brief,enrich_chain,score_signal,summarize_chain
+from app.services.options_analytics import enrich_chain, score_signal, summarize_chain
+from app.services.options_copilot import generate_copilot_brief
 router=APIRouter(prefix="/options",tags=["Option Analytics"])
 def _payload(symbol,expiry):
     try: chain=enrich_chain(_chain(symbol,expiry))
@@ -15,5 +16,7 @@ def option_analytics(symbol:str=Query(...),expiry:str=Query(...)):
     return _payload(symbol,expiry)
 @router.get("/copilot")
 def option_copilot(symbol:str=Query(...),expiry:str=Query(...)):
-    """Return analyst-role summaries grounded in calculated metrics; no LLM call."""
-    result=_payload(symbol,expiry); result["copilot"]=build_copilot_brief(result["metrics"],result["signal"]); return result
+    """Return chain, volatility, risk and portfolio analyst summaries."""
+    result=_payload(symbol,expiry)
+    result["copilot"]=generate_copilot_brief(result["metrics"],result["signal"])
+    return result

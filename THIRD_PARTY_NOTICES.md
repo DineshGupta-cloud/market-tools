@@ -5,7 +5,7 @@ Source: https://github.com/85599/Strike-and-Hedge
 Copyright (c) 2026 Khushal
 License: MIT
 
-The options-analytics and explainable signal/coplaybook architecture in this repository are adapted from concepts and selected mathematical approaches in Strike & Hedge. The implementation is modified for Market Tools' FastAPI routes and existing call/put chain schema; upstream source files are not imported at runtime.
+The options-analytics and explainable copilot architecture in this repository are adapted from concepts and selected mathematical approaches in Strike & Hedge. The implementation is modified for Market Tools' FastAPI routes and existing call/put chain schema; upstream source files are not imported at runtime.
 
 MIT License
 
