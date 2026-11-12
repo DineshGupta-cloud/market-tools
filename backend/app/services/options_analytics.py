@@ -63,7 +63,7 @@ def summarize_chain(chain):
             k=_n(r.get("strike")); payout+=max(settlement-k,0)*(_n((r.get("call") or {}).get("oi")) or 0); payout+=max(k-settlement,0)*(_n((r.get("put") or {}).get("oi")) or 0)
         pain.append((payout,settlement))
     atm=min(rows,key=lambda r:abs(_n(r.get("strike"))-spot)); ce=atm.get("call") or {}; pe=atm.get("put") or {}
-    ivs=[v for v in (_n(ce.get("iv")),_n(pe.get("iv"))) if v and v>0]; straddle=(_n(ce.get("ltp")) or 0)+(_n(pe.get("ltp")) or 0)
+    ivs=[_iv(ce),_iv(pe)]; ivs=[v*100 for v in ivs if v and v>0]; straddle=(_n(ce.get("ltp")) or 0)+(_n(pe.get("ltp")) or 0)
     return {"spot":spot,"pcr_oi":round(p_oi/c_oi,4) if c_oi else None,"pcr_volume":round(p_vol/c_vol,4) if c_vol else None,
       "call_oi_total":c_oi,"put_oi_total":p_oi,"call_volume_total":c_vol,"put_volume_total":p_vol,
       "call_oi_wall":_n(cw.get("strike")),"put_oi_wall":_n(pw.get("strike")),"max_pain":min(pain)[1],
